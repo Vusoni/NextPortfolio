@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
+// Layout Text Flip Component
 export const LayoutTextFlip = ({
   text = "Build Amazing",
   words = ["Landing Pages", "Component Blocks", "Page Sections", "3D Shaders"],
@@ -18,12 +19,13 @@ export const LayoutTextFlip = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length); // Keep track of Current Index
     }, duration);
 
     return () => clearInterval(interval);
   }, [duration, words.length]);
 
+  // Component Body
   return (
     <span className={cn("inline-flex flex-wrap items-center gap-2", className)}>
       <motion.span layoutId="subtext" className="inline-block">

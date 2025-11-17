@@ -60,9 +60,11 @@ export default async function RootLayout({
               <AppSidebar side="right" />
 
               <FloatingDock />
+
+              {/* Toggle Sidebar */}
               <SidebarToggle />
 
-              {/* Mode Toggle - Desktop: bottom right next to AI chat, Mobile: top right next to burger menu */}
+              {/* Mode toggle  */}
               <div className="fixed md:bottom-6 md:right-24 top-4 right-18 md:top-auto md:left-auto z-20">
                 <div className="w-10 h-10 md:w-12 md:h-12">
                   <ModeToggle />

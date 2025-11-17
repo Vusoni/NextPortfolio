@@ -1,5 +1,6 @@
 "use client";
 
+// Imports
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
@@ -24,13 +25,15 @@ import {
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
+// Variables for reuse
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "25rem";
 const SIDEBAR_WIDTH_MOBILE = "100%";
 const SIDEBAR_WIDTH_ICON = "3rem";
-const SIDEBAR_KEYBOARD_SHORTCUT = "b";
+const SIDEBAR_KEYBOARD_SHORTCUT = "b"; // Keyboard shortcut to open Sidebar
 
+// Type for TypeScript
 type SidebarContextProps = {
   state: "expanded" | "collapsed";
   open: boolean;
@@ -43,6 +46,7 @@ type SidebarContextProps = {
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null);
 
+// Custom Hook
 function useSidebar() {
   const context = React.useContext(SidebarContext);
   if (!context) {
@@ -52,6 +56,7 @@ function useSidebar() {
   return context;
 }
 
+// Sidebar Provider
 function SidebarProvider({
   defaultOpen = true,
   open: openProp,

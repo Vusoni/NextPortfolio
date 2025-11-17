@@ -14,6 +14,7 @@ import {
   TestimonialsSection,
 } from "@/components/sections";
 
+// Here are all of the components that were used to build this Portfolio
 async function PortfolioContent() {
   return (
     <>

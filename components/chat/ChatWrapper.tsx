@@ -3,6 +3,7 @@ import Chat from "@/components/chat/Chat";
 import { sanityFetch } from "@/sanity/lib/live";
 import SidebarToggle from "../SidebarToggle";
 
+// Query Profile
 const CHAT_PROFILE_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
     _id,
     _type,
@@ -22,6 +23,7 @@ const CHAT_PROFILE_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
     profileImage
   }`);
 
+// Chat Wrapper
 async function ChatWrapper() {
   const { data: profile } = await sanityFetch({ query: CHAT_PROFILE_QUERY });
 
@@ -31,6 +33,7 @@ async function ChatWrapper() {
         <SidebarToggle />
       </div>
 
+      {/* Allow me to display "Hi "{real name}" */}
       <Chat profile={profile} />
     </div>
   );

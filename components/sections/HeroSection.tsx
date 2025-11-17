@@ -42,6 +42,7 @@ export async function HeroSection() {
       <BackgroundRippleEffect rows={8} cols={27} cellSize={56} />
 
       <div className="relative z-10 container mx-auto max-w-6xl">
+        {/* Container for Hero Section */}
         <div className="@container">
           <div className="grid grid-cols-1 @3xl:grid-cols-2 gap-8 @lg:gap-12 items-center">
             {/* Text Content */}
@@ -53,6 +54,7 @@ export async function HeroSection() {
               {profile.headlineStaticText &&
               profile.headlineAnimatedWords &&
               profile.headlineAnimatedWords.length > 0 ? (
+                // Text Flip That will be displayed with different skills
                 <LayoutTextFlip
                   text={profile.headlineStaticText}
                   words={profile.headlineAnimatedWords}
@@ -68,6 +70,7 @@ export async function HeroSection() {
                 {profile.shortBio}
               </p>
 
+              {/* Links to the profiles medias */}
               {profile.socialLinks && (
                 <div className="flex flex-wrap gap-3 @md/hero:gap-4 pt-4">
                   {profile.socialLinks.github && (
@@ -135,7 +138,7 @@ export async function HeroSection() {
               </div>
             </div>
 
-            {/* Profile Image */}
+            {/* Image Profile */}
             {profile.profileImage && (
               <ProfileImage
                 imageUrl={urlFor(profile.profileImage)

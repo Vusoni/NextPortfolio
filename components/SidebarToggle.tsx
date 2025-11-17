@@ -5,12 +5,13 @@ import { MessageSquare, Sparkles } from "lucide-react";
 import { useSidebar } from "./ui/sidebar";
 
 function SidebarToggle() {
+  // Check for Mobile Screen
   const { toggleSidebar, open, isMobile, openMobile } = useSidebar();
   const { isSignedIn } = useUser();
 
-  const isSidebarOpen = isMobile ? openMobile : open;
+  const isSidebarOpen = isMobile ? openMobile : open; // If User is on Mobile then openMobile, otherwise desktop
 
-  if (isSidebarOpen) return null;
+  if (isSidebarOpen) return null; // If it's open then return nothing
 
   const buttonStyles = `relative w-16 h-16 rounded-full 
     bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 
@@ -24,12 +25,12 @@ function SidebarToggle() {
   return (
     <div className="fixed bottom-6 right-6 z-50 group">
       {/* Animated rings */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 opacity-20 blur-2xl animate-ping [animation-duration:2s]" />
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 opacity-30 blur-xl animate-pulse [animation-duration:3s]" />
+      <div className="absolute inset-0 rounded-full bg-linear-to-br from-violet-500 to-fuchsia-500 opacity-20 blur-2xl animate-ping [animation-duration:2s]" />
+      <div className="absolute inset-0 rounded-full bg-linear-to-br from-purple-500 to-pink-500 opacity-30 blur-xl animate-pulse [animation-duration:3s]" />
 
       {/* Sparkle badge */}
       <div className="absolute -top-1 -right-1 z-10">
-        <div className="h-6 w-6 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg flex items-center justify-center animate-bounce [animation-duration:2s]">
+        <div className="h-6 w-6 rounded-full bg-linear-to-br from-amber-400 to-orange-500 shadow-lg flex items-center justify-center animate-bounce [animation-duration:2s]">
           <Sparkles className="h-3 w-3 text-white" />
         </div>
       </div>

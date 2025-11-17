@@ -3,6 +3,7 @@ import Link from "next/link";
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 
+// Query to dataset
 const ABOUT_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
   firstName,
   lastName,
@@ -14,6 +15,7 @@ const ABOUT_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
   location
 }`);
 
+// About Section Component
 export async function AboutSection() {
   const { data: profile } = await sanityFetch({ query: ABOUT_QUERY });
 
@@ -26,7 +28,7 @@ export async function AboutSection() {
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
-          <p className="text-xl text-muted-foreground">Get to know me better</p>
+          <p className="text-xl text-muted-foreground">About Me Info</p>
         </div>
 
         <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -35,6 +37,7 @@ export async function AboutSection() {
               value={profile.fullBio}
               components={{
                 block: {
+                  // Customize how the components will look like
                   normal: ({ children }) => (
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       {children}
@@ -93,7 +96,7 @@ export async function AboutSection() {
           )}
         </div>
 
-        {/* Stats from CMS */}
+        {/* Stats comes from CMS */}
         {profile.stats && profile.stats.length > 0 && (
           <div className="@container mt-12 pt-12 border-t">
             <div className="grid grid-cols-2 @lg:grid-cols-4 gap-6">

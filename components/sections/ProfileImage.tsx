@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useSidebar } from "../ui/sidebar";
 
+// Interface for TypeScript
 interface ProfileImageProps {
   imageUrl: string;
   firstName: string;
@@ -17,15 +18,17 @@ export function ProfileImage({
   firstName,
   lastName,
 }: ProfileImageProps) {
+  // Custom Hooks and useState to keep track of is Hovered State
   const [isHovered, setIsHovered] = useState(false);
   const { toggleSidebar, open } = useSidebar();
   const { isSignedIn } = useUser();
   const { openSignIn } = useClerk();
 
+  // Profile Image Body Component
   return (
     <button
       type="button"
-      onClick={() => (isSignedIn ? toggleSidebar() : openSignIn())}
+      onClick={() => (isSignedIn ? toggleSidebar() : openSignIn())} // Checking dynamically for isSigned State
       className="relative aspect-square rounded-2xl overflow-hidden border-4 border-primary/20 block group cursor-pointer w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -39,7 +42,7 @@ export function ProfileImage({
         priority
       />
 
-      {/* Online Badge */}
+      {/* Online Badge Check */}
       <div className="absolute top-4 right-4 flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
         <div className="relative">
           <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
